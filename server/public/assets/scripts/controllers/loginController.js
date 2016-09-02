@@ -2,6 +2,8 @@ myApp.controller('LoginController', ['$scope', '$http', '$location', function($s
     $scope.user = {
       username: '',
       password: ''
+      //passport by default is expecting these set variable names by convention
+      //also connected to the schema
     };
     $scope.message = '';
     //part that displays if you type in incorrect information!
@@ -32,12 +34,17 @@ myApp.controller('LoginController', ['$scope', '$http', '$location', function($s
       } else {
         console.log('sending to server...', $scope.user);
         $http.post('/register', $scope.user).then(function(response) {
+          //.then do this stuff when you get a response back
+          //we can send back two parameters
           console.log('success');
           $location.path('/home');
         },
         function(response) {
+          //remember to pass in same parameter as the initial response
           console.log('error');
           $scope.message = "Please try again."
+          //indirect conditional", based on the protocol and handles the http status it forks the Logic
+          //it will do one or the other based on the response protocol. (err or success)
         });
       }
     }

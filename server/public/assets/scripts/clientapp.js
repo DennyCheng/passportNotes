@@ -1,6 +1,7 @@
 var myApp = angular.module('myApp', ['ngRoute']);
 /// Routes ///
 
+//able to do user authenticating before routing (we can do pre routes)
 myApp.config(['$routeProvider', function($routeProvider) {
   $routeProvider
     .when('/home', {

@@ -28,9 +28,14 @@ app.use(express.static(path.join(__dirname, './public')));
 app.use(session({
    secret: 'secret',
    key: 'user',
+   //key property establishes how the routes are going to access the data (req.user) user is defined here
+  // all the documentations is going to be used req.user
+   //middleware manipulates requests (sticks on properties/methods)
    resave: 'true',
    saveUninitialized: false,
    cookie: { maxage: 60000, secure: false }
+   //how long the cookie want to be around
+   //these have our routes (uses this session package)
 }));
 
 // start up passport sessions

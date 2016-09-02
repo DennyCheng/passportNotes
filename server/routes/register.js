@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 var Users = require('../models/user');
-//schema and models or userModels
+//schema and models or userModels(that brings it into run)
 var path = require('path');
 
 // Handles request for HTML file

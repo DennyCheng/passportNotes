@@ -8,13 +8,17 @@ router.get('/', function(req, res) {
   console.log('get /user route');
   // check if logged in
   if(req.isAuthenticated()) {
+    //req.isAuthenticated has to be ran for the server to be able to authenticate the status of the session
     // send back user object from database
     //sends in that cookie with the request to passport and checks if they are matching
     //this method is supplied by passport(ask are they authenticated)
     //authenticate the user before you give out any data, that if they are authenticated then send the data!!!
+    //checks if our session cookie matches the users cookie
+    //isAuthenticated sends a response and finishes our initial get request.
     console.log('logged in');
     res.send(req.user);
     //sends user back to the client
+    //req.user is the user object from the DATABASE
   } else {
     // failure best handled on the server. do redirect here.
     console.log('not logged in');
